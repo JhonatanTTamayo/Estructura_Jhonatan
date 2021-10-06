@@ -30,10 +30,10 @@ class Activity_SLL:
             self.tail = new_node
           self.length +=1
         self.show_elements()
-        menu_option = int(input(Fore.YELLOW+'    Seleccionar una opción del menu\n'+Fore.RESET+    Fore.RED+'      1. Añadir nodo con raiz cuadrada\n'    '      2. Eliminar y Añadir al final elevado al cuadrado\n'    '      3.Invertir la lista'+Fore.RESET))
+        menu_option = int(input(Fore.YELLOW+'    Seleccionar una opción del menu\n'+Fore.RESET+    Fore.RED+'      1. Añadir nodo con raiz cuadrada\n'    '      2. Eliminar y Añadir al final elevado al cuadrado\n'    '      3.Invertir la lista\n      Numero ingresado: '+Fore.RESET))
         while True:
-          if menu_option !=1 and menu_option!=2:
-            menu_option = int(input('    Seleccionar una opcion del munu    1. Añadir nodo con raiz cuadrada    2. Eliminar y Añadir al final elevado al cuadrado    3.Invertir la lista'))
+          if menu_option !=1 and menu_option!=2 and menu_option !=3:
+            menu_option = int(input(Fore.YELLOW+'    Seleccionar una opción del menu\n'+Fore.RESET+    Fore.RED+'      1. Añadir nodo con raiz cuadrada\n'    '      2. Eliminar y Añadir al final elevado al cuadrado\n'    '      3.Invertir la lista\n      Numero ingresado: '+Fore.RESET))
           elif menu_option==1:
             self.punto1()
             self.show_elements()
@@ -42,9 +42,11 @@ class Activity_SLL:
             self.punto2()
             self.show_elements()   
             break
-          else:
-            self.punto2()  
-            break
+          elif menu_option==3:
+            self.punto3()
+            self.show_elements()
+            break  
+            
         break
       except ValueError:
         print(Fore.RED+'           ERROR, se esperaba un valor númerico'+Fore.RESET)    
@@ -114,7 +116,7 @@ class Activity_SLL:
       reverse_nodes=current_node
       current_node=next
     self.head = reverse_nodes  
-    print(self.head)
+    #print(self.head)
   
   def show_elements(self):
     array= []
